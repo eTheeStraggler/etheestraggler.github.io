@@ -3,28 +3,55 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="brown">
     <meta name="author" content="@ETheeStraggler">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='viewport' content='width=device-width, height=device-height, initial-scale=1, viewport-fit=cover'>
     <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <title>A Website on the Internet</title>
 </head>
 
 <body>
-    <h1>This is a resource on a website that you are viewing!</h1>
-        <p>I created this site to have some fun - not shake any ground.
-            It's actually hosted by shoestrings and duct tape as far as I'm concerned. 
-            I want to see what I can turn this into.. little by little...
-        </p>
-    <h2>This is just a start.</h2>
-        <p>There's much more to do here. This site is a playground
-            just like the internet its on. Let's see where the
-            information highway can take me...
-        </p>
-    <h3>Got extra cash?</h3>
-        <div class="btn-text-center">
-            <button type="button" class="btn btn-primary" onclick="payMe()">Try this out!</button>
-        </div>    
+    <div id="header">
+        <div class="container">This is a resource on a website that you are viewing!</div>
+    </div>
+    <div class="container">
+        <div id="login">
+            <p style="margin: auto; text-align: center; font-size: 5em;">hello.</p>
+            <form onsubmit="return login();">
+                <p style="font-weight: bold; padding-bottom: 0.5em;">User name</p>
+                <input type="text" autocomplete="username webauthn" autocorrect="off" autocapitalize="off" spellcheck="false" id="username-field">
+                <div id="passwordStuff" style="display: none;">
+                    <p style="font-weight: bold; padding-bottom: 0.5em;">Password</p>
+                    <input type="password" autocomplete="current-password" autocorrect="off" autocapitalize="off" id="password">
+                </div>
+                <button style="font-weight: bold; cursor: pointer;">Sign In</button>
+            </form>
+            <div id="other">
+                <p style="font-weight: normal;" onClick="register();">Create a New Account</p>
+            </div>
+        </div>
+        <div id="about">
+            <p>I created this site to have some fun - not shake any ground.
+                It's actually hosted by shoestrings and duct tape as far as I'm concerned. 
+                I want to see what I can turn this into.. little by little...
+            </p>
+        <h2>This is just a start.</h2>
+            <p>There's much more to do here. This site is a playground
+                just like the internet its on. Let's see where the
+                information highway can take me...
+            </p>
+        <h3 id="rh3">Got extra cash?</h3>
+            <div class="txt-input">
+                <input type="text" placeholder="Enter your name" id="inputId">
+            </div>
+            <div class="btn-text-center">
+                <button type="button" class="btn btn-primary" onclick="getInputValue()">Click Me!</button>
+                <button type="button" class="btn btn-primary" onclick="payMe()">Or try this out!</button>
+                <button type="button" class="btn btn-primary" id="random" onclick="random()">This Is Random</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script src="scripts/main.js"></script>
