@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="bureaucracy">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="You made it to the secret VIP backroom of A Website on the Internet.">
+  <title>you made it. — VIP Backroom of the Internet</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+  <link rel="icon" type="image/x-icon" sizes="any" href="images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/main.css">
+  <script type="module" src="scripts/vip.js"></script>
+</head>
+
+<body class="vip-page">
+  <a class="skip-link" href="#main-content">Skip to VIP lounge</a>
+  <canvas id="confetti-canvas" class="highway-canvas" aria-hidden="true"></canvas>
+  <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-cluster">
+        <span class="status-beacon" aria-hidden="true"></span>
+        <span class="brand-tag">VIP CLEARANCE GRANTED</span>
+        <span class="brand-divider" aria-hidden="true">/</span>
+        <span class="brand-notice">Welcome to the Backroom of the Internet</span>
+      </div>
+      <div class="header-controls">
+        <button type="button" class="pill-btn" id="vip-confetti-btn">
+          <span aria-hidden="true">🎉</span> More Confetti
+        </button>
+        <a href="index.html" class="pill-btn">
+          <span aria-hidden="true">←</span> Return to Public Internet
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="section-shell vip-main">
+    <section class="vip-hero">
+      <span class="eyebrow-pill">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>EXCLUSIVITY LEVEL: EXTREMELY SQUEAKY FOLDING CHAIR</span>
+      </span>
+
+      <h1 class="hero-title vip-title">you made it.</h1>
+
+      <p class="hero-lead vip-lead" id="vip-greeting">
+        Congratulations. You bypassed our state-of-the-art velvet rope and unlocked the most
+        prestigious seat on the entire Information Superhighway.
+      </p>
+
+      <figure class="vip-figure tilt-card">
+        <img
+          src="images/vip-lounge.jpg"
+          alt="A dramatic museum spotlight shining down on a single humble metal folding chair with a tiny gold paper crown on a red velvet carpet inside a cosmic server vault"
+          width="1376"
+          height="768"
+        >
+        <figcaption>
+          Exhibit A: Your complimentary VIP folding chair. Please do not lean back on two legs;
+          it voided our shoestring insurance policy.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="vip-grid">
+      <!-- Holographic Badge Minting Station -->
+      <article class="bento-card tilt-card">
+        <div class="card-body">
+          <span class="mono-label">OFFICIAL CREDENTIAL PRINTER</span>
+          <h2>Mint Your Internet VIP Badge</h2>
+          <p>No real name required. Pick a codename and an absurdly inflated title.</p>
+
+          <div class="badge-controls">
+            <div class="form-field">
+              <label for="badge-name">Codename</label>
+              <input type="text" id="badge-name" value="Anonymous Packet" maxlength="28" autocomplete="off">
+            </div>
+            <div class="form-field">
+              <label for="badge-title">Official Title</label>
+              <select id="badge-title">
+                <option value="Senior Duct-Tape Architect">Senior Duct-Tape Architect</option>
+                <option value="Chief Fiber-Optic Whisperer">Chief Fiber-Optic Whisperer</option>
+                <option value="Grand Viscount of HTTP 200">Grand Viscount of HTTP 200</option>
+                <option value="Director of Unnecessary CSS">Director of Unnecessary CSS</option>
+                <option value="Keeper of the Folding Chair">Keeper of the Folding Chair</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="holo-badge" id="holo-badge">
+            <div class="holo-badge-top">
+              <span>BUREAU OF THE INTERNET</span>
+              <span id="badge-serial">#VIP-0042</span>
+            </div>
+            <div class="holo-badge-name" id="badge-preview-name">Anonymous Packet</div>
+            <div class="holo-badge-role" id="badge-preview-role">Senior Duct-Tape Architect</div>
+            <div class="holo-badge-foot">
+              <span>CLEARANCE: FOLDING CHAIR</span>
+              <span>VALID: FOREVER-ISH</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button type="button" class="btn btn-primary" id="download-badge-btn">Download SVG Badge</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- The Forbidden Big Red Button -->
+      <article class="bento-card tilt-card">
+        <div class="card-body red-button-card">
+          <span class="mono-label">STRICTLY DECORATIVE INFRASTRUCTURE</span>
+          <h2>Do Not Press This Button</h2>
+          <p id="red-btn-copy">
+            Seriously. This button controls nothing important, which somehow makes pressing it
+            even more suspicious.
+          </p>
+
+          <button type="button" class="big-red-btn" id="big-red-btn">
+            <span>DO NOT<br>PRESS</span>
+          </button>
+
+          <p class="mono-label" id="red-btn-counter">PRESSES: 0 (IMPECCABLE RESTRAINT)</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-title">The Secret Backroom of A Website on the Internet</p>
+      <p class="footer-sub">What happens in loggedin.html stays in sessionStorage (and nowhere else).</p>
+    </div>
+  </footer>
+</body>
+
+</html>

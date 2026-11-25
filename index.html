@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="bureaucracy">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="This is an official resource on a website on the Internet, proudly held together by shoestrings, metallic duct tape, and experimental CSS.">
+  <title>A Website on the Internet — doubleudoubleudoubleudotwebsitedotcom.info</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+  <link rel="icon" type="image/x-icon" sizes="any" href="images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/main.css">
+  <script type="module" src="scripts/main.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to the actual website</a>
+
+  <!-- Scroll-driven reading progress bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Interactive Information Superhighway Canvas -->
+  <canvas id="highway-canvas" class="highway-canvas" aria-hidden="true"></canvas>
+
+  <!-- Live Toast / Status Notification Stack -->
+  <div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- Top Telemetry & Control Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-cluster">
+        <span class="status-beacon" aria-hidden="true"></span>
+        <span class="brand-tag">HTTP 200 OK</span>
+        <span class="brand-divider" aria-hidden="true">/</span>
+        <span class="brand-notice">This is a resource on a website that you are viewing!</span>
+      </div>
+
+      <div class="header-controls">
+        <button type="button" class="pill-btn" id="sound-toggle" aria-pressed="false" title="Toggle procedural Web Audio sound effects">
+          <span class="pill-icon" aria-hidden="true">🔇</span>
+          <span class="pill-label">Audio: Off</span>
+        </button>
+
+        <button type="button" class="pill-btn" popovertarget="cert-popover" id="cert-btn">
+          <span class="pill-icon" aria-hidden="true">🏅</span>
+          <span class="pill-label">Authenticity</span>
+        </button>
+
+        <div class="theme-switcher" role="group" aria-label="Reality Mode">
+          <button type="button" class="theme-btn" data-theme-select="bureaucracy" aria-pressed="true" title="Standard Bureaucracy">Obsidian</button>
+          <button type="button" class="theme-btn" data-theme-select="shoestring" aria-pressed="false" title="Turbo Shoestring Overdrive">Overdrive</button>
+          <button type="button" class="theme-btn" data-theme-select="web1997" aria-pressed="false" title="1997 Webmaster Mode">1997</button>
+          <button type="button" class="theme-btn" data-theme-select="blueprint" aria-pressed="false" title="Architectural Blueprint">Blueprint</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Native Popover API: Certificate of Authenticity -->
+    <div id="cert-popover" popover="auto" class="cert-popover">
+      <div class="cert-stamp" aria-hidden="true">CERTIFIED WEBSITE</div>
+      <h3>Certificate of Website Authenticity</h3>
+      <p>This document formally verifies that you are currently viewing a genuine <strong>Website</strong> located on the <strong>Internet</strong>.</p>
+      <dl class="cert-specs">
+        <div><dt>Third-Party Trackers</dt><dd>0 (we barely track ourselves)</dd></div>
+        <div><dt>External CDNs</dt><dd>0 (artisanal local bytes)</dd></div>
+        <div><dt>Load-Bearing Duct Tape</dt><dd id="cert-tape-count">3 strips</dd></div>
+        <div><dt>Cookies</dt><dd>None. Eat a real one instead.</dd></div>
+      </dl>
+      <p class="cert-footnote">Press <kbd>Esc</kbd> or click outside to dismiss this completely binding legal document.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <div class="eyebrow-pill">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>Live from the Information Superhighway</span>
+        </div>
+
+        <h1 class="hero-title">
+          Welcome to <span class="gradient-word">A Website</span><br>on the Internet.
+        </h1>
+
+        <p class="hero-lead">
+          You typed—or bravely clicked—one of the most redundant domain names ever registered.
+          We created this site to have some fun, not shake any ground. It is proudly held aloft
+          by <strong>shoestrings, silver duct tape, and wildly unnecessary modern web APIs</strong>.
+        </p>
+
+        <!-- Interactive URL Pronunciation Coach -->
+        <div class="pronouncer-card" aria-label="Domain pronunciation coach">
+          <div class="pronouncer-top">
+            <span class="mono-label">OFFICIAL DOMAIN SPELL-OUT</span>
+            <button type="button" class="mini-action-btn" id="pronounce-btn">
+              <span aria-hidden="true">🔊</span> Pronounce It Aloud
+            </button>
+          </div>
+          <div class="syllable-track" id="syllable-track">
+            <span class="syllable" data-word="double-u">doubleu</span>
+            <span class="syllable" data-word="double-u">doubleu</span>
+            <span class="syllable" data-word="double-u">doubleu</span>
+            <span class="syllable accent" data-word="dot">dot</span>
+            <span class="syllable" data-word="website">website</span>
+            <span class="syllable accent" data-word="dot">dot</span>
+            <span class="syllable" data-word="com">com</span>
+            <span class="syllable accent" data-word="dot">.</span>
+            <span class="syllable highlight" data-word="info">info</span>
+          </div>
+          <p class="pronouncer-caption" id="pronouncer-caption" aria-live="polite">
+            9 syllables of pure, unfiltered hypertext confidence.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#playground" class="btn btn-primary">
+            <span>Enter the Playground</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a href="#vip-gate" class="btn btn-secondary">
+            <span>VIP Backroom Login</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <button type="button" class="btn btn-ghost" id="open-invoice-hero">
+            <span>View $0.00 Invoice</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Duct-Tape Server Showcase -->
+      <div class="hero-visual">
+        <div class="server-stage tilt-card" id="server-stage">
+          <div class="server-hud-top">
+            <span class="hud-chip">NODE: SHOESTRING-01</span>
+            <span class="hud-chip" id="integrity-badge">INTEGRITY: 94%</span>
+          </div>
+
+          <div class="server-frame" id="server-frame">
+            <img
+              src="images/hero-server.jpg"
+              alt="A sleek futuristic glowing server cube humorously held together with metallic silver duct tape and neon-tipped shoestrings"
+              class="server-img"
+              width="1376"
+              height="768"
+              decoding="async"
+            >
+            <!-- User-applied duct tape strips land here -->
+            <div class="tape-layer" id="tape-layer" aria-hidden="true"></div>
+          </div>
+
+          <div class="integrity-meter-wrap">
+            <div class="integrity-labels">
+              <span class="mono-label">DUCT-TAPE STRUCTURAL INTEGRITY</span>
+              <span class="mono-value" id="integrity-readout">94% (Nominal Wobble)</span>
+            </div>
+            <div class="meter-track" role="progressbar" aria-label="Server duct-tape structural integrity" aria-valuemin="0" aria-valuemax="120" aria-valuenow="94" id="integrity-bar-wrap">
+              <div class="meter-fill" id="integrity-fill" style="--fill: 78%;"></div>
+            </div>
+          </div>
+
+          <div class="server-controls">
+            <button type="button" class="mini-action-btn" id="apply-tape-btn">
+              <span aria-hidden="true">🩹</span> Slap On Duct Tape
+            </button>
+            <button type="button" class="mini-action-btn" id="poke-server-btn">
+              <span aria-hidden="true">👉</span> Poke Server
+            </button>
+            <button type="button" class="mini-action-btn" id="tighten-laces-btn">
+              <span aria-hidden="true">👟</span> Double-Knot Laces
+            </button>
+            <button type="button" class="mini-action-btn subtle" id="peel-tape-btn">
+              Reset Tape
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE TELEMETRY MARQUEE STRIP -->
+    <section class="telemetry-strip" aria-label="Live absurd website telemetry">
+      <div class="telemetry-grid">
+        <div class="telemetry-item">
+          <span class="mono-label">PAGE UPTIME (THIS VISIT)</span>
+          <span class="telemetry-val" id="visit-uptime">00:00:00</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="mono-label">PACKETS DODGED</span>
+          <span class="telemetry-val" id="packet-counter">0</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="mono-label">SHOESTRING TENSION</span>
+          <span class="telemetry-val" id="shoestring-tension">42.0 PSI</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="mono-label">CURRENT VIBE</span>
+          <span class="telemetry-val" id="vibe-status">Cautiously Optimistic</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYGROUND SECTION: INTERACTIVE BENTO GRID -->
+    <section id="playground" class="section-shell">
+      <div class="section-header reveal-item">
+        <span class="mono-label">EXPERIMENTAL PLAYGROUND // MODULE 01–04</span>
+        <h2>This is just a start.</h2>
+        <p>
+          There's much more to do here. This site is a playground just like the internet it's on.
+          Click around, poke the infrastructure, and see where the information highway takes you.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- CARD 1: INFORMATION SUPERHIGHWAY FEATURE -->
+        <article class="bento-card bento-wide tilt-card reveal-item">
+          <div class="card-media">
+            <img
+              src="images/info-highway.jpg"
+              alt="A glowing retro-futuristic fiber-optic highway overpass in space with luminous rubber duck and paper airplane data packets cruising toward a prismatic portal"
+              loading="lazy"
+              width="1376"
+              height="768"
+            >
+            <span class="media-badge">LIVE TRAFFIC CAM (NOT ACTUALLY LIVE)</span>
+          </div>
+          <div class="card-body">
+            <span class="mono-label">HIGHWAY DISPATCH</span>
+            <h3>Move your cursor to bend the Information Superhighway</h3>
+            <p>
+              The background canvas runs a live particle-and-packet physics field. Hover to create a
+              gravitational vortex, click empty space for a shockwave, or launch an emergency rubber duck
+              packet straight down the fiber-optic lane.
+            </p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-secondary" id="launch-duck-btn">
+                <span aria-hidden="true">🦆</span> Dispatch Rubber Duck Packet
+              </button>
+              <button type="button" class="btn btn-ghost" id="toggle-warp-btn" aria-pressed="false">
+                <span aria-hidden="true">⚡</span> Engage Warp Speed
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2: "WHO IS ___ ANYWAY?" IDENTITY ENGINE -->
+        <article class="bento-card tilt-card reveal-item">
+          <div class="card-body">
+            <span class="mono-label">EXISTENTIAL LOOKUP ENGINE</span>
+            <h3>Who is anyone, really?</h3>
+            <p>
+              Enter literally any name (real, fictional, or a type of soup) and our totally
+              unscientific Department of Hypertext Records will investigate.
+            </p>
+
+            <form id="identity-form" class="inline-form">
+              <label for="inputId" class="sr-only">Enter a name to investigate</label>
+              <input
+                type="text"
+                id="inputId"
+                name="subject"
+                placeholder="Enter a name (or a soup)..."
+                autocomplete="off"
+                maxlength="48"
+              >
+              <button type="submit" class="btn btn-primary">Investigate</button>
+            </form>
+
+            <div id="dossier-output" class="dossier-panel" aria-live="polite">
+              <p class="dossier-placeholder">Awaiting a subject of mild curiosity…</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3: "THIS IS RANDOM" CHAOS ESCALATOR -->
+        <article class="bento-card tilt-card reveal-item">
+          <div class="card-body">
+            <span class="mono-label">CONTROLLED ENTROPY LAB</span>
+            <h3 id="rh3">Got extra cash?</h3>
+            <p id="chaos-desc">
+              Press the chaos button below to escalate from mild nonsense to full-blown web browser
+              shenanigans. Everything is 100% reversible.
+            </p>
+
+            <div class="chaos-meter">
+              <span class="mono-label">CHAOS LEVEL</span>
+              <span class="chaos-level-pill" id="chaos-level-pill" aria-live="polite">0 / 6 — Respectable</span>
+            </div>
+
+            <div class="card-actions">
+              <button type="button" class="btn btn-primary" id="random-btn">
+                <span aria-hidden="true">🎲</span> This Is Random
+              </button>
+              <button type="button" class="btn btn-secondary" id="pay-me-btn">
+                <span aria-hidden="true">💸</span> Got Extra Cash?
+              </button>
+              <button type="button" class="btn btn-ghost hidden" id="restore-order-btn">
+                Restore Bureaucratic Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 4: UNDER THE HOOD / CUTTING-EDGE WEB TECH -->
+        <article class="bento-card bento-wide reveal-item">
+          <div class="card-body">
+            <span class="mono-label">OVER-ENGINEERED SPEC SHEET</span>
+            <h3>Ridiculously cutting-edge web tech, zero build step</h3>
+            <p>
+              Why ship a 4MB JavaScript bundle when modern native browser primitives can do backflips
+              out of the box? Live feature detection for your current browser:
+            </p>
+            <ul class="capability-grid" id="capability-grid">
+              <li data-cap="viewTransitions">
+                <span class="cap-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>View Transitions API</strong>
+                  <small>Morphing theme &amp; page switches</small>
+                </div>
+              </li>
+              <li data-cap="scrollTimeline">
+                <span class="cap-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>CSS Scroll-Driven Animations</strong>
+                  <small><code>animation-timeline: scroll() / view()</code></small>
+                </div>
+              </li>
+              <li data-cap="popover">
+                <span class="cap-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Native Popover &amp; <code>@starting-style</code></strong>
+                  <small>Top-layer UI with discrete transitions</small>
+                </div>
+              </li>
+              <li data-cap="cssProperty">
+                <span class="cap-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>CSS <code>@property</code> + <code>oklch()</code></strong>
+                  <small>GPU-interpolated conic plasma borders</small>
+                </div>
+              </li>
+              <li data-cap="webAuthn">
+                <span class="cap-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>WebAuthn Passkeys</strong>
+                  <small><code>navigator.credentials</code> sandbox</small>
+                </div>
+              </li>
+              <li data-cap="webAudio">
+                <span class="cap-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Procedural Web Audio Synth</strong>
+                  <small>Zero MP3s — 100% live oscillators</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIP BACKROOM ACCESS GATE ("hello.") -->
+    <section id="vip-gate" class="section-shell">
+      <div class="vip-gate-shell tilt-card reveal-item">
+        <div class="vip-gate-intro">
+          <span class="mono-label">RESTRICTED AREA // LEVEL 99 CLEARANCE</span>
+          <h2 class="hello-display">hello.</h2>
+          <p>
+            Welcome to the completely unnecessary authentication terminal for the
+            <strong>Secret Backroom of the Internet</strong>.
+          </p>
+          <ul class="hint-list">
+            <li><strong>Passkey Nerds:</strong> Try the live WebAuthn demo buttons (requires HTTPS or localhost).</li>
+            <li><strong>Fast Track:</strong> Type a username ending in a number (or containing <code>password</code> or <code>other</code>) to reveal the secret password drawer—just like the original site!</li>
+            <li><strong>Impatient?</strong> Any username + password gets you past the velvet rope.</li>
+          </ul>
+        </div>
+
+        <form id="login-form" class="login-card" novalidate>
+          <div class="form-field">
+            <label for="username-field">User name</label>
+            <input
+              type="text"
+              id="username-field"
+              name="username"
+              autocomplete="username webauthn"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              maxlength="48"
+              placeholder="e.g. captain42"
+            >
+          </div>
+
+          <div id="passwordStuff" class="password-drawer" hidden>
+            <div class="form-field">
+              <label for="password">Secret Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                autocorrect="off"
+                autocapitalize="off"
+                placeholder="Definitely not 'password123'"
+              >
+              <div class="strength-row" aria-live="polite">
+                <span class="mono-label">VIBE CHECK:</span>
+                <span id="password-strength" class="strength-verdict">Awaiting keystrokes…</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="login-actions">
+            <button type="submit" class="btn btn-primary full-width">Sign In</button>
+            <button type="button" class="btn btn-secondary full-width" id="register-passkey-btn">
+              Register Demo Passkey
+            </button>
+            <button type="button" class="btn btn-ghost full-width" id="skip-to-vip-btn">
+              Sneak Under the Velvet Rope →
+            </button>
+          </div>
+
+          <p id="auth-feedback" class="auth-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-title">A Website on the Internet</p>
+      <p class="footer-sub">
+        Held together with shoestrings, duct tape, and experimental browser APIs.
+        Zero trackers. Zero personal data. Zero regrets.
+      </p>
+      <p class="footer-egg">
+        Psst: Try the Konami Code (<kbd>↑</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd><kbd>←</kbd><kbd>→</kbd><kbd>B</kbd><kbd>A</kbd>)
+        if you remember the ancient cheat codes.
+      </p>
+    </div>
+  </footer>
+
+  <!-- NATIVE <dialog>: $0.00 OFFICIAL WEBPAGE INVOICE -->
+  <dialog id="invoice-dialog" class="invoice-dialog" aria-labelledby="invoice-title">
+    <div class="invoice-sheet">
+      <div class="invoice-head">
+        <div>
+          <span class="mono-label">INVOICE #HTTP-200-0001</span>
+          <h3 id="invoice-title">Official Webpage Viewing Invoice</h3>
+        </div>
+        <button type="button" class="icon-close-btn" id="close-invoice-btn" aria-label="Close invoice">✕</button>
+      </div>
+
+      <p class="invoice-note">
+        Per our historic billing policy: feel free to email <code>doubleudoubleudotnetdot.org</code>
+        and send absolutely zero dollars plz!!
+      </p>
+
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>Line Item</th>
+            <th class="num">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Artisanal HTML5 Tags (Locally Sourced)</td>
+            <td class="num">$0.00</td>
+          </tr>
+          <tr>
+            <td>Metallic Duct Tape Depreciation</td>
+            <td class="num">$0.00</td>
+          </tr>
+          <tr>
+            <td>Unnecessary 3D CSS Perspective Transforms</td>
+            <td class="num">$0.00</td>
+          </tr>
+          <tr>
+            <td>Premium Shoestring Bandwidth</td>
+            <td class="num">$0.00</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total Due Immediately (or Never)</th>
+            <th class="num">$0.00</th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div id="invoice-paid-banner" class="paid-banner hidden" role="status">
+        ✓ PAID IN FULL WITH GOOD VIBES. THANK YOU FOR YOUR PATRONAGE.
+      </div>
+
+      <div class="invoice-actions">
+        <button type="button" class="btn btn-primary" id="pay-vibes-btn">Pay $0.00 with Good Vibes</button>
+        <button type="button" class="btn btn-secondary" id="download-receipt-btn">Download Receipt (.txt)</button>
+      </div>
+    </div>
+  </dialog>
+</body>
+
+</html>
