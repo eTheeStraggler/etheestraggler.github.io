@@ -35,6 +35,14 @@ This repository contains the static website for **`doubleudoubleudoubleudotwebsi
 ├── favicon.ico               # Root copy of multi-size favicon for /favicon.ico requests
 ├── index.html                # Main landing page & interactive playground
 ├── loggedin.html             # Secret VIP Backroom ("you made it.")
+├── game.html                 # FRAGILE: The Great Server Rescue (in-browser platformer)
+├── game/
+│   ├── game.css              # Self-contained game styles
+│   ├── levels.js             # 6 level definitions (plain data)
+│   ├── render.js             # Canvas 2D renderer (sky, parallax, player, world)
+│   ├── audio.js              # Opt-in procedural Web Audio synth
+│   ├── input.js              # Keyboard + touch input
+│   └── engine.js             # Game loop, physics, states, HUD, overlays
 ├── styles/
 │   └── main.css              # Shared layered stylesheet & 4 Reality Mode themes
 ├── scripts/
@@ -64,6 +72,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 ### JavaScript Syntax Verification
 ```bash
 node --check scripts/main.js && node --check scripts/vip.js
+node --check game/levels.js && node --check game/render.js && node --check game/audio.js && node --check game/input.js && node --check game/engine.js
 ```
 
 ### HTML Structure, Duplicate ID & Local Asset Verification
@@ -87,7 +96,7 @@ class CheckHTML(HTMLParser):
         if not self.stack or self.stack[-1] != tag: self.errors.append(tag)
         else: self.stack.pop()
 
-for page in ["index.html", "loggedin.html"]:
+for page in ["index.html", "loggedin.html", "game.html"]:
     txt = open(page).read()
     p = CheckHTML(); p.feed(txt)
     assert not p.errors and not p.stack, f"{page}: {p.errors} {p.stack}"
@@ -104,8 +113,8 @@ print("HTML & asset links OK")
 ### Safety & Zero-Dependency Audit
 ```bash
 # Confirm no unsafe DOM injection sinks or external asset URLs
-grep -rnE "innerHTML|outerHTML|insertAdjacentHTML|eval\(" scripts/ || echo "DOM sink check CLEAN"
-grep -rnE "(src|href)=\"https?://" index.html loggedin.html || echo "Zero external assets CLEAN"
+grep -rnE "innerHTML|outerHTML|insertAdjacentHTML|eval\(" scripts/ game/ || echo "DOM sink check CLEAN"
+grep -rnE "(src|href)=\"https?://" index.html loggedin.html game.html || echo "Zero external assets CLEAN"
 ```
 
 ---

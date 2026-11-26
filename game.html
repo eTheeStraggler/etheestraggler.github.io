@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="FRAGILE — a whimsical, duct-tape-powered platformer about rescuing a fragile server to the VIP backroom. Just for fun.">
+  <title>FRAGILE: The Great Server Rescue — A Website on the Internet</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png?v=2">
+  <link rel="stylesheet" href="game/game.css">
+</head>
+<body>
+  <a class="skip-link" href="#game-root">Skip to the game</a>
+
+  <div id="game-root">
+    <canvas id="game-canvas" width="960" height="540" role="img" aria-label="FRAGILE: The Great Server Rescue — game screen. A duct-tape courier must carry a fragile server to the VIP backroom."></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hud" aria-hidden="false">
+      <div class="hud-left">
+        <span id="hud-level" class="hud-level">FRAGILE</span>
+      </div>
+      <div class="hud-center">
+        <span id="hud-cookies" class="hud-chip" title="Cookies collected">🍪 0</span>
+        <span id="hud-invoices" class="hud-chip" title="Invoices collected (always $0.00)">🧾 $0.00</span>
+      </div>
+      <div class="hud-right">
+        <span id="hud-time" class="hud-time">0:00</span>
+        <button type="button" id="btn-mute" class="hud-btn" aria-pressed="false" aria-label="Toggle sound">🔊</button>
+        <button type="button" id="btn-pause" class="hud-btn" aria-label="Pause game">⏸</button>
+        <button type="button" id="btn-home" class="hud-btn" aria-label="Back to menu">⌂</button>
+      </div>
+    </div>
+
+    <!-- Touch controls (shown on touch devices) -->
+    <div id="touch-controls" class="touch-controls" hidden>
+      <button type="button" class="tc-btn tc-left" data-touch="left" aria-label="Move left">◀</button>
+      <button type="button" class="tc-btn tc-jump" data-touch="jump" aria-label="Jump">▲</button>
+      <button type="button" class="tc-btn tc-right" data-touch="right" aria-label="Move right">▶</button>
+    </div>
+
+    <!-- Overlay (title / select / intro / dead / complete / win / pause) -->
+    <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+      <div class="overlay-card">
+        <p id="overlay-kicker" class="overlay-kicker"></p>
+        <h1 id="overlay-title" class="overlay-title"></h1>
+        <p id="overlay-subtitle" class="overlay-subtitle"></p>
+        <div id="overlay-body" class="overlay-body"></div>
+        <div id="overlay-actions" class="overlay-actions"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="game/engine.js"></script>
+</body>
+</html>
